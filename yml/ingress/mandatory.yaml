@@ -16,7 +16,8 @@ metadata:
   labels:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
-
+data:
+  enable-underscores-in-headers: "true"
 ---
 kind: ConfigMap
 apiVersion: v1
@@ -188,7 +189,7 @@ subjects:
 ---
 
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
   name: nginx-ingress-controller
   namespace: ingress-nginx
@@ -196,7 +197,7 @@ metadata:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
 spec:
-  replicas: 1
+  #replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: ingress-nginx
@@ -211,6 +212,7 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       serviceAccountName: nginx-ingress-serviceaccount
+      hostNetwork: true
       containers:
         - name: nginx-ingress-controller
           image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.25.0

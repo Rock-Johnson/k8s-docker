@@ -39,3 +39,8 @@ docker rmi registry.cn-beijing.aliyuncs.com/zhy_k8s/pause:3.1
 docker pull registry.cn-beijing.aliyuncs.com/zhy_k8s/kubernetes-dashboard-amd64:v1.10.1
 docker tag registry.cn-beijing.aliyuncs.com/zhy_k8s/kubernetes-dashboard-amd64:v1.10.1  k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
 docker rmi registry.cn-beijing.aliyuncs.com/zhy_k8s/kubernetes-dashboard-amd64:v1.10.1
+
+
+docker pull registry.cn-beijing.aliyuncs.com/zhy_k8s/nginx-ingress-controller:0.25.0
+docker tag registry.cn-beijing.aliyuncs.com/zhy_k8s/nginx-ingress-controller:0.25.0  quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.25.0
+docker rmi registry.cn-beijing.aliyuncs.com/zhy_k8s/nginx-ingress-controller:0.25.0
